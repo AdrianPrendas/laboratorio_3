@@ -1,8 +1,14 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package bl;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import domain.Profesor;
+import domain.Carrera;
+import domain.Curso;
 import eif203.util.IOServices;
 import java.io.IOException;
 import java.nio.charset.Charset;
@@ -16,39 +22,37 @@ import org.json.JSONObject;
 
 /**
  *
- * @author _Adrián_Prendas_
+ * @author esteban
  */
-public class ProfesorBL implements BaseBL<Profesor,Integer>{
+public class CarreraBL implements BaseBL<Carrera,Integer>{
 
-    public ProfesorBL(){}
-    
     @Override
-    public boolean create(Profesor o) {
+    public boolean create(Carrera o) {
         Gson gson = new GsonBuilder().setDateFormat("dd/MM/yyyy").create();
-        Hashtable<Integer,Profesor> tablaHash = new Hashtable();
+        Hashtable<Integer,Carrera> tablaHash = new Hashtable();
         try {
-            List<String> list = IOServices.readTextFileAsList("", "./../data/profesores.json");
+            List<String> list = IOServices.readTextFileAsList("", "./../data/carreras.json");
             for (int i = 0; i < list.size(); i++) {
                 JSONObject obj = new JSONObject(list.get(i));
                 tablaHash.put(
                    obj.getInt("cedula"), 
-                    new Profesor(
-                        obj.getInt("cedula"),
+                    new Carrera(
+                        obj.getInt("codigo"),
                         obj.getString("nombre"),
-                        obj.getInt("telefono"),
-                        obj.getString("email")
+                        obj.getString("titulo"),
+                        //falta agregar lista de cursos
                     )
                 );
             }
-            tablaHash.put(o.getCedula(), o);
+            tablaHash.put(o.getCodigo(), o);
             
             List<String> lines = new ArrayList();
             for(Integer key : tablaHash.keySet()){
                 lines.add(gson.toJson(tablaHash.get(key)));
             }
-            Path file = Paths.get("./../data/profesores.json");
+            Path file = Paths.get("./../data/carreras.json");
             Files.write(file, lines, Charset.forName("UTF-8"));
-     
+            //IOServices.writeText("./../data/", "carreras.json",str);//error, el archivo lo tiene el reader
         } catch (IOException e) {
             e.printStackTrace();
             return false;
@@ -58,19 +62,19 @@ public class ProfesorBL implements BaseBL<Profesor,Integer>{
     }
 
     @Override
-    public Profesor read(Integer key) {
-        Hashtable<Integer,Profesor> tablaHash = new Hashtable();
+    public Carrera read(Integer key) {
+        Hashtable<Integer,Carrera> tablaHash = new Hashtable();
         try {
-            List<String> list = IOServices.readTextFileAsList("", "./../data/profesores.json");
+            List<String> list = IOServices.readTextFileAsList("", "./../data/carreras.json");
             for (int i = 0; i < list.size(); i++) {
                 JSONObject obj = new JSONObject(list.get(i));
                 tablaHash.put(
-                   obj.getInt("cedula"), 
-                    new Profesor(
-                        obj.getInt("cedula"),
+                   obj.getInt("codigo"), 
+                    new Carrera(
+                        obj.getInt("codigo"),
                         obj.getString("nombre"),
-                        obj.getInt("telefono"),
-                        obj.getString("email")
+                        obj.getString("titulo"),
+                        //falta agreagar lista cursos
                     )
                 );
             }
@@ -84,18 +88,18 @@ public class ProfesorBL implements BaseBL<Profesor,Integer>{
     }
 
     @Override
-    public List<Profesor> read() {
-        ArrayList<Profesor> listaProfesores = new ArrayList();
+    public List<Carrera> read() {
+        ArrayList<Carrera> listacarreras = new ArrayList();
         try {
-            List<String> list = IOServices.readTextFileAsList("", "./../data/profesores.json");
+            List<String> list = IOServices.readTextFileAsList("", "./../data/carreras.json");
             for (int i = 0; i < list.size(); i++) {
                 JSONObject obj = new JSONObject(list.get(i));
-                listaProfesores.add(
-                        new Profesor(
-                            obj.getInt("cedula"),
+                listacarreras.add(
+                        new Carrera(
+                            obj.getInt("codigo"),
                             obj.getString("nombre"),
-                            obj.getInt("telefono"),
-                            obj.getString("email")
+                            obj.getString("titulo"),
+                            //falta agregar lista cursos
                         )
                 );
             }
@@ -103,59 +107,59 @@ public class ProfesorBL implements BaseBL<Profesor,Integer>{
             e.printStackTrace();
         }
         System.out.println("*** Se cargaron todos los registros correctamente");
-        return listaProfesores;
+        return listacarreras;
     }
 
     @Override
-    public boolean update(Profesor o) {
-    Gson gson = new GsonBuilder().setDateFormat("dd/MM/yyyy").create();
-        Hashtable<Integer,Profesor> tablaHash = new Hashtable();
+    public boolean update(Carrera o) {
+        Gson gson = new GsonBuilder().setDateFormat("dd/MM/yyyy").create();
+        Hashtable<Integer,Carrera> tablaHash = new Hashtable();
         try {
-            List<String> list = IOServices.readTextFileAsList("", "./../data/profesores.json");
+            List<String> list = IOServices.readTextFileAsList("", "./../data/carreras.json");
             for (int i = 0; i < list.size(); i++) {
                 JSONObject obj = new JSONObject(list.get(i));
                 tablaHash.put(
-                   obj.getInt("cedula"), 
-                    new Profesor(
-                        obj.getInt("cedula"),
+                   obj.getInt("codigo"), 
+                    new Carrera(
+                        obj.getInt("codigo"),
                         obj.getString("nombre"),
-                        obj.getInt("telefono"),
-                        obj.getString("email")
+                        obj.getString("titulo"),
+                            //falta agregar lista cursos
                     )
                 );
             }
-            tablaHash.put(o.getCedula(), o);
+            tablaHash.put(o.getCodigo(), o);
             
             List<String> lines = new ArrayList();
             for(Integer key : tablaHash.keySet()){
                 lines.add(gson.toJson(tablaHash.get(key)));
             }
-            Path file = Paths.get("./../data/profesores.json");
+            Path file = Paths.get("./../data/carreras.json");
             Files.write(file, lines, Charset.forName("UTF-8"));
-
+            //IOServices.writeText("./../data/", "carreras.json",str);//error, el archivo lo tiene el reader
         } catch (IOException e) {
             e.printStackTrace();
             return false;
         }
         System.out.println("*** Se modifico con exito ***");
-        return true;    
+        return true;
     }
 
     @Override
     public boolean delete(Integer key) {
-    Gson gson = new GsonBuilder().setDateFormat("dd/MM/yyyy").create();
-        Hashtable<Integer,Profesor> tablaHash = new Hashtable();
+        Gson gson = new GsonBuilder().setDateFormat("dd/MM/yyyy").create();
+        Hashtable<Integer,Carrera> tablaHash = new Hashtable();
         try {
-            List<String> list = IOServices.readTextFileAsList("", "./../data/profesores.json");
+            List<String> list = IOServices.readTextFileAsList("", "./../data/carreras.json");
             for (int i = 0; i < list.size(); i++) {
                 JSONObject obj = new JSONObject(list.get(i));
                 tablaHash.put(
-                   obj.getInt("cedula"), 
-                    new Profesor(
-                        obj.getInt("cedula"),
+                   obj.getInt("codigo"), 
+                    new Carrera(
+                        obj.getInt("codigo"),
                         obj.getString("nombre"),
-                        obj.getInt("telefono"),
-                        obj.getString("email")
+                        obj.getString("titulo"),
+                            //falta agregar lista cursos
                     )
                 );
             }
@@ -164,14 +168,15 @@ public class ProfesorBL implements BaseBL<Profesor,Integer>{
             for(Integer k : tablaHash.keySet()){
                 lines.add(gson.toJson(tablaHash.get(k)));
             }
-            Path file = Paths.get("./../data/profesores.json");
+            Path file = Paths.get("./../data/carreras.json");
             Files.write(file, lines, Charset.forName("UTF-8"));
+            //IOServices.writeText("./../data/", "carreras.json",str);//error, el archivo lo tiene el reader
         } catch (IOException e) {
             e.printStackTrace();
             return false;
         }
         System.out.println("*** Se elimino con exito ***");
-        return true;   
+        return true;
     }
     
 }

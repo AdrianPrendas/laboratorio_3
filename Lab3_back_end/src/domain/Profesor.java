@@ -51,6 +51,12 @@ public class Profesor extends Usuario {
         this.email = email;
     }
     
+    public String toString(){
+       return "{cedula:"+this.cedula+
+                ", nombre:"+this.nombre+
+                ", telefono:"+this.telefono+
+                ", email:"+this.email+"}";
+    }
     
     
     

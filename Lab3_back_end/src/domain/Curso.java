@@ -50,7 +50,13 @@ public class Curso {
     public void setHoras(int horas) {
         this.horas = horas;
     }
-
+    
+    public String toString(){
+    return"{codigo:"+this.codigo+
+            ",nombre:"+this.nombre+
+            ",creditos:"+this.creditos+
+            ",horas:"+this.horas+"}";
+    }
     
     
 }
