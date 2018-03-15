@@ -3,11 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/esteban/Desktop/Moviles/laboratorio_3/Lab3_back_end/src/domain/Carrera.java</file>
-            <file>file:/C:/Users/esteban/Desktop/Moviles/laboratorio_3/Lab3_back_end/src/domain/Profesor.java</file>
-            <file>file:/C:/Users/esteban/Desktop/Moviles/laboratorio_3/Lab3_back_end/src/bl/CarreraBL.java</file>
-            <file>file:/C:/Users/esteban/Desktop/Moviles/laboratorio_3/Lab3_back_end/src/bl/ProfesorBL.java</file>
-            <file>file:/C:/Users/esteban/Desktop/Moviles/laboratorio_3/Lab3_back_end/src/domain/Alumno.java</file>
+            <file>file:/C:/Users/esteban/Desktop/Moviles/laboratorio_3/Lab3_back_end/src/bl/CicloBL.java</file>
+            <file>file:/C:/Users/esteban/Desktop/Moviles/laboratorio_3/Lab3_back_end/src/domain/Grupo.java</file>
+            <file>file:/C:/Users/esteban/Desktop/Moviles/laboratorio_3/Lab3_back_end/src/domain/Ciclo.java</file>
+            <file>file:/C:/Users/esteban/Desktop/Moviles/laboratorio_3/Lab3_back_end/src/bl/GrupoBL.java</file>
         </group>
     </open-files>
 </project-private>
