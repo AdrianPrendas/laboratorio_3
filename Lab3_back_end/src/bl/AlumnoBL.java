@@ -56,6 +56,7 @@ public class AlumnoBL implements BaseBL<Alumno,Integer> {
             e.printStackTrace();
             return false;
         }
+        System.out.println("*** Se almaceno correctamente ***");
         return true;
     }
     
@@ -80,6 +81,7 @@ public class AlumnoBL implements BaseBL<Alumno,Integer> {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        System.out.println("*** Se cargaron todos los registros correctamente");
         return listaAlumnos;
     }
 
@@ -105,7 +107,9 @@ public class AlumnoBL implements BaseBL<Alumno,Integer> {
             
         } catch (Exception e) {
             e.printStackTrace();
+            return null;
         }
+        System.out.println("*** Se cargo con exito ***");
         return tablaHash.get(key);
     }
 
@@ -142,6 +146,7 @@ public class AlumnoBL implements BaseBL<Alumno,Integer> {
             e.printStackTrace();
             return false;
         }
+        System.out.println("*** Se modifico con exito ***");
         return true;
     }
 
@@ -177,6 +182,7 @@ public class AlumnoBL implements BaseBL<Alumno,Integer> {
             e.printStackTrace();
             return false;
         }
+        System.out.println("*** Se elimino con exito ***");
         return true;
     }
 
