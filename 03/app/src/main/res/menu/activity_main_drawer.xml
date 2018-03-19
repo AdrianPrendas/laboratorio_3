@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_alumno"
+            android:icon="@drawable/arrow"
+            android:title="Alumno" />
+        <item
+            android:id="@+id/nav_Carrera"
+            android:icon="@drawable/arrow"
+            android:title="Carrera" />
+        <item
+            android:id="@+id/nav_Ciclo"
+            android:icon="@drawable/arrow"
+            android:title="Ciclo" />
+        <item
+            android:id="@+id/nav_Curso"
+            android:icon="@drawable/arrow"
+            android:title="Curso" />
+        <item
+            android:id="@+id/nav_Grupo"
+            android:icon="@drawable/arrow"
+            android:title="Grupo" />
+        <item
+            android:id="@+id/nav_Profesor"
+            android:icon="@drawable/arrow"
+            android:title="Profesor" />
+        <item
+        android:id="@+id/nav_Usuario"
+            android:icon="@drawable/arrow"
+        android:title="Usuario" />
+    </group>
+
+    <item android:title="Communicate">
+    </item>
+
+</menu>
