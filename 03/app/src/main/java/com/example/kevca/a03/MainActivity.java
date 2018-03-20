@@ -80,19 +80,25 @@ public class MainActivity extends AppCompatActivity
             miFragment=new AlumnoFragment();
             fragmentSeleccionado=true;
         } else if (id == R.id.nav_Carrera) {
-
+            miFragment=new CarreraFragment();
+            fragmentSeleccionado=true;
         } else if (id == R.id.nav_Ciclo) {
-
+            miFragment=new CicloFragment();
+            fragmentSeleccionado=true;
         } else if (id == R.id.nav_Curso) {
             Toast.makeText(getApplicationContext(),"TOast entra on create",Toast.LENGTH_SHORT).show();
             miFragment=new listaCursoFragment();
             fragmentSeleccionado=true;
         } else if (id == R.id.nav_Grupo) {
-
+            miFragment=new GrupoFragment();
+            fragmentSeleccionado=true;
         } else if (id == R.id.nav_Profesor) {
+            miFragment=new ProfesorFragment();
+            fragmentSeleccionado=true;
 
         } else if (id == R.id.nav_Usuario) {
-
+            miFragment=new UsuarioFragment();
+            fragmentSeleccionado=true;
         }
         if(fragmentSeleccionado==true){
             getSupportFragmentManager().beginTransaction().replace(R.id.content_frame,miFragment)
