@@ -17,7 +17,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, AlumnoFragment.OnFragmentInteractionListener, listaCursoFragment.OnFragmentInteractionListener {
+        implements NavigationView.OnNavigationItemSelectedListener, AlumnoFragment.OnFragmentInteractionListener, listaCursoFragment.OnFragmentInteractionListener,ProfesorFragment.OnFragmentInteractionListener,CarreraFragment.OnFragmentInteractionListener,CicloFragment.OnFragmentInteractionListener,CursoFragment.OnFragmentInteractionListener,UsuarioFragment.OnFragmentInteractionListener,GrupoFragment.OnFragmentInteractionListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
