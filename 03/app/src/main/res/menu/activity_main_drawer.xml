@@ -34,7 +34,10 @@
         android:title="Usuario" />
     </group>
 
-    <item android:title="Communicate">
-    </item>
+    <item
+        android:id="@+id/nav_salir"
+        android:icon="@drawable/arrow"
+        android:title="salir" />
+
 
 </menu>

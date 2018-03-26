@@ -1,11 +1,9 @@
 package com.example.kevca.a03;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -15,6 +13,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
+
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, AlumnoFragment.OnFragmentInteractionListener, listaCursoFragment.OnFragmentInteractionListener,ProfesorFragment.OnFragmentInteractionListener,CarreraFragment.OnFragmentInteractionListener,CicloFragment.OnFragmentInteractionListener,CursoFragment.OnFragmentInteractionListener,UsuarioFragment.OnFragmentInteractionListener,GrupoFragment.OnFragmentInteractionListener {
@@ -73,6 +72,35 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
+        /*ArrayList<Alumno> lista;
+        Alumno alumno = new Alumno(813156487,"Prendas",87950618,"adrian.prendas.araya@est.una.ac.cr", new Date(2018,3,25),1);
+
+
+        AlumnoBL abl = new AlumnoBL();
+        System .out.println("**************************Default List**************************");
+        lista = abl.getList();
+        for(Alumno a : lista) System.out.println(a);
+
+
+        System.out.println("**************************Updated**************************");
+        abl.update(alumno);
+        lista = abl.getList();
+        for (Alumno a : lista) System.out.println(a);
+
+
+        System.out.println("**************************Deleted**************************");
+        abl.delete(alumno.getCedula());
+        lista = abl.getList();
+        for (Alumno a : lista) System.out.println(a);
+
+        System.out.println("**************************Created**************************");
+        abl.createAlumno(alumno);
+        lista = abl.getList();
+        for (Alumno a : lista) System.out.println(a);
+
+        System.out.println("**************************Especific Data**************************");
+        System.out.println(abl.getAlumno(alumno.getCedula()));*/
+
         int id = item.getItemId();
         Fragment miFragment = null;
         boolean fragmentSeleccionado=false;
@@ -86,7 +114,7 @@ public class MainActivity extends AppCompatActivity
             miFragment=new CicloFragment();
             fragmentSeleccionado=true;
         } else if (id == R.id.nav_Curso) {
-            Toast.makeText(getApplicationContext(),"TOast entra on create",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(),"on nav_Curso",Toast.LENGTH_SHORT).show();
             miFragment=new listaCursoFragment();
             fragmentSeleccionado=true;
         } else if (id == R.id.nav_Grupo) {
@@ -99,6 +127,11 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_Usuario) {
             miFragment=new UsuarioFragment();
             fragmentSeleccionado=true;
+        }
+        else if(id == R.id.nav_salir){
+            Toast.makeText(getApplicationContext(),"saliendo ...",Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this,LoginActivity.class);
+            startActivity(intent);
         }
         if(fragmentSeleccionado==true){
             getSupportFragmentManager().beginTransaction().replace(R.id.content_frame,miFragment)

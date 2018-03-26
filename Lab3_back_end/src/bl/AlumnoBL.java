@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import domain.Alumno;
 import eif203.util.IOServices;
+import java.io.File;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
@@ -13,6 +14,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Hashtable;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.json.JSONObject;
 
 /**
@@ -28,7 +31,7 @@ public class AlumnoBL implements BaseBL<Alumno,Integer> {
         Gson gson = new GsonBuilder().setDateFormat("dd/MM/yyyy").create();
         Hashtable<Integer,Alumno> tablaHash = new Hashtable();
         try {
-            List<String> list = IOServices.readTextFileAsList("", "./../data/alumnos.json");
+            List<String> list = IOServices.readTextFileAsList("", "./data/alumnos.json");
             for (int i = 0; i < list.size(); i++) {
                 JSONObject obj = new JSONObject(list.get(i));
                 tablaHash.put(
@@ -49,9 +52,9 @@ public class AlumnoBL implements BaseBL<Alumno,Integer> {
             for(Integer key : tablaHash.keySet()){
                 lines.add(gson.toJson(tablaHash.get(key)));
             }
-            Path file = Paths.get("./../data/alumnos.json");
+            Path file = Paths.get("./data/alumnos.json");
             Files.write(file, lines, Charset.forName("UTF-8"));
-            //IOServices.writeText("./../data/", "alumnos.json",str);//error, el archivo lo tiene el reader
+            //IOServices.writeText("./data/", "alumnos.json",str);//error, el archivo lo tiene el reader
         } catch (IOException e) {
             e.printStackTrace();
             return false;
@@ -64,7 +67,7 @@ public class AlumnoBL implements BaseBL<Alumno,Integer> {
     public List<Alumno> read() {
         ArrayList<Alumno> listaAlumnos = new ArrayList();
         try {
-            List<String> list = IOServices.readTextFileAsList("", "./../data/alumnos.json");
+            List<String> list = IOServices.readTextFileAsList("", "./data/alumnos.json");
             for (int i = 0; i < list.size(); i++) {
                 JSONObject obj = new JSONObject(list.get(i));
                 listaAlumnos.add(
@@ -80,6 +83,13 @@ public class AlumnoBL implements BaseBL<Alumno,Integer> {
             }
         } catch (Exception e) {
             e.printStackTrace();
+            File currentDirectory = new File(new File(".").getAbsolutePath());
+            try {
+                System.out.println(currentDirectory.getCanonicalPath());
+            } catch (IOException ex) {
+                Logger.getLogger(AlumnoBL.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            System.out.println(currentDirectory.getAbsolutePath());
         }
         System.out.println("*** Se cargaron todos los registros correctamente");
         return listaAlumnos;
@@ -89,7 +99,7 @@ public class AlumnoBL implements BaseBL<Alumno,Integer> {
     public Alumno read(Integer key) {
         Hashtable<Integer,Alumno> tablaHash = new Hashtable();
         try {
-            List<String> list = IOServices.readTextFileAsList("", "./../data/alumnos.json");
+            List<String> list = IOServices.readTextFileAsList("", "./data/alumnos.json");
             for (int i = 0; i < list.size(); i++) {
                 JSONObject obj = new JSONObject(list.get(i));
                 tablaHash.put(
@@ -118,7 +128,7 @@ public class AlumnoBL implements BaseBL<Alumno,Integer> {
         Gson gson = new GsonBuilder().setDateFormat("dd/MM/yyyy").create();
         Hashtable<Integer,Alumno> tablaHash = new Hashtable();
         try {
-            List<String> list = IOServices.readTextFileAsList("", "./../data/alumnos.json");
+            List<String> list = IOServices.readTextFileAsList("", "./data/alumnos.json");
             for (int i = 0; i < list.size(); i++) {
                 JSONObject obj = new JSONObject(list.get(i));
                 tablaHash.put(
@@ -139,9 +149,9 @@ public class AlumnoBL implements BaseBL<Alumno,Integer> {
             for(Integer key : tablaHash.keySet()){
                 lines.add(gson.toJson(tablaHash.get(key)));
             }
-            Path file = Paths.get("./../data/alumnos.json");
+            Path file = Paths.get("./data/alumnos.json");
             Files.write(file, lines, Charset.forName("UTF-8"));
-            //IOServices.writeText("./../data/", "alumnos.json",str);//error, el archivo lo tiene el reader
+            //IOServices.writeText("./data/", "alumnos.json",str);//error, el archivo lo tiene el reader
         } catch (IOException e) {
             e.printStackTrace();
             return false;
@@ -155,7 +165,7 @@ public class AlumnoBL implements BaseBL<Alumno,Integer> {
         Gson gson = new GsonBuilder().setDateFormat("dd/MM/yyyy").create();
         Hashtable<Integer,Alumno> tablaHash = new Hashtable();
         try {
-            List<String> list = IOServices.readTextFileAsList("", "./../data/alumnos.json");
+            List<String> list = IOServices.readTextFileAsList("", "./data/alumnos.json");
             for (int i = 0; i < list.size(); i++) {
                 JSONObject obj = new JSONObject(list.get(i));
                 tablaHash.put(
@@ -175,17 +185,15 @@ public class AlumnoBL implements BaseBL<Alumno,Integer> {
             for(Integer k : tablaHash.keySet()){
                 lines.add(gson.toJson(tablaHash.get(k)));
             }
-            Path file = Paths.get("./../data/alumnos.json");
+            Path file = Paths.get("./data/alumnos.json");
             Files.write(file, lines, Charset.forName("UTF-8"));
-            //IOServices.writeText("./../data/", "alumnos.json",str);//error, el archivo lo tiene el reader
+            //IOServices.writeText("./data/", "alumnos.json",str);//error, el archivo lo tiene el reader
         } catch (IOException e) {
             e.printStackTrace();
             return false;
         }
         System.out.println("*** Se elimino con exito ***");
         return true;
-    }
-
-    
+    }    
     
 }

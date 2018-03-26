@@ -29,7 +29,7 @@ public class GrupoBL implements BaseBL<Grupo,Integer> {
     public boolean create(Grupo o) {
         Gson gson = new GsonBuilder().setDateFormat("dd/MM/yyyy").create();
         Hashtable<Integer,Grupo> tablaHash = new Hashtable();
-        try {
+        /*try {
             List<String> list = IOServices.readTextFileAsList("", "./../data/grupos.json");
             for (int i = 0; i < list.size(); i++) {
                 JSONObject obj = new JSONObject(list.get(i));
@@ -58,14 +58,14 @@ public class GrupoBL implements BaseBL<Grupo,Integer> {
             e.printStackTrace();
             return false;
         }
-        System.out.println("*** Se almaceno correctamente ***");
+        System.out.println("*** Se almaceno correctamente ***");*/
         return true;
     }
 
     @Override
     public Grupo read(Integer key) {
         Hashtable<Integer,Grupo> tablaHash = new Hashtable();
-        try {
+        /*try {
             List<String> list = IOServices.readTextFileAsList("", "./../data/grupos.json");
             for (int i = 0; i < list.size(); i++) {
                 JSONObject obj = new JSONObject(list.get(i));
@@ -86,14 +86,14 @@ public class GrupoBL implements BaseBL<Grupo,Integer> {
             e.printStackTrace();
             return null;
         }
-        System.out.println("*** Se cargo con exito ***");
+        System.out.println("*** Se cargo con exito ***");*/
         return tablaHash.get(key);
     }
 
     @Override
     public List<Grupo> read() {
         ArrayList<Grupo> listagrupos = new ArrayList();
-        try {
+        /*try {
             List<String> list = IOServices.readTextFileAsList("", "./../data/grupos.json");
             for (int i = 0; i < list.size(); i++) {
                 JSONObject obj = new JSONObject(list.get(i));
@@ -111,7 +111,7 @@ public class GrupoBL implements BaseBL<Grupo,Integer> {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        System.out.println("*** Se cargaron todos los registros correctamente");
+        System.out.println("*** Se cargaron todos los registros correctamente");*/
         return listagrupos;
     }
 
@@ -119,7 +119,7 @@ public class GrupoBL implements BaseBL<Grupo,Integer> {
     public boolean update(Grupo o) {
     Gson gson = new GsonBuilder().setDateFormat("dd/MM/yyyy").create();
         Hashtable<Integer,Grupo> tablaHash = new Hashtable();
-        try {
+        /*try {
             List<String> list = IOServices.readTextFileAsList("", "./../data/grupos.json");
             for (int i = 0; i < list.size(); i++) {
                 JSONObject obj = new JSONObject(list.get(i));
@@ -148,7 +148,7 @@ public class GrupoBL implements BaseBL<Grupo,Integer> {
             e.printStackTrace();
             return false;
         }
-        System.out.println("*** Se modifico con exito ***");
+        System.out.println("*** Se modifico con exito ***");*/
         return true;    
     }
 
@@ -156,7 +156,7 @@ public class GrupoBL implements BaseBL<Grupo,Integer> {
     public boolean delete(Integer key) {
         Gson gson = new GsonBuilder().setDateFormat("dd/MM/yyyy").create();
         Hashtable<Integer,Grupo> tablaHash = new Hashtable();
-        try {
+        /*try {
             List<String> list = IOServices.readTextFileAsList("", "./../data/grupos.json");
             for (int i = 0; i < list.size(); i++) {
                 JSONObject obj = new JSONObject(list.get(i));
@@ -184,7 +184,7 @@ public class GrupoBL implements BaseBL<Grupo,Integer> {
             e.printStackTrace();
             return false;
         }
-        System.out.println("*** Se elimino con exito ***");
+        System.out.println("*** Se elimino con exito ***");*/
         return true;
     }
     

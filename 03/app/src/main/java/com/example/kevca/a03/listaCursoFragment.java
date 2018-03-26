@@ -12,10 +12,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.example.a6r1an.lab03.domain.Curso;
+import com.example.bl.CursoBL;
+
 import java.util.ArrayList;
+import java.util.List;
 
 import Adaptadores.AdaptadorCurso;
-import Entidades.Curso;
+//import Entidades.Curso;
 
 
 /**
@@ -40,6 +44,7 @@ public class listaCursoFragment extends Fragment {
 
     RecyclerView recyclerCurso;
     ArrayList<Curso> listaCursos;
+    public static CursoBL cursobl = CursoBL.Companion.getInstance();//singleton
 
     public listaCursoFragment() {
         // Required empty public constructor
@@ -93,10 +98,11 @@ public class listaCursoFragment extends Fragment {
     }
 
     private void llenarLista() {
-        listaCursos.add(new Curso(1,"Curso 1",2,2));
+        /*listaCursos.add(new Curso(1,"Curso 1",2,2));
         listaCursos.add(new Curso(2,"Curso 2",2,2));
         listaCursos.add(new Curso(3,"Curso 3",4,4));
-        listaCursos.add(new Curso(4,"Curso 4",4,6));
+        listaCursos.add(new Curso(4,"Curso 4",4,6));*/
+        listaCursos = new ArrayList(cursobl.readAll());
     }
 
     // TODO: Rename method, update argument and hook method into UI event

@@ -6,11 +6,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.a6r1an.lab03.domain.Curso;
 import com.example.kevca.a03.R;
 
 import java.util.ArrayList;
 
-import Entidades.Curso;
+//import Entidades.Curso;
 
 /**
  * Created by kevca on 3/18/2018.
