@@ -8,5 +8,5 @@ data class Carrera(
         var codigo: Int,
         var nombre: String,
         var titulo: String,
-        var cursos: List<Curso>
+        var cursos: List<Int>
 )

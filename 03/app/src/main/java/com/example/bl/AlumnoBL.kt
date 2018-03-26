@@ -6,7 +6,7 @@ import java.util.*
 /**
  * Created by Josue on 25/03/2018.
  */
-class AlumnoBL: BaseBl<Int,Alumno>{
+class AlumnoBL: BaseBL<Int,Alumno>{
 
     override fun create(obj: Alumno): Alumno {
         hashTable[obj.cedula] = obj

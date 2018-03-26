@@ -1,7 +1,6 @@
 package com.example.kevca.a03;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -13,10 +12,8 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.a6r1an.lab03.domain.Curso;
-import com.example.bl.CursoBL;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import Adaptadores.AdaptadorCurso;
 //import Entidades.Curso;
@@ -45,6 +42,7 @@ public class listaCursoFragment extends Fragment {
     RecyclerView recyclerCurso;
     ArrayList<Curso> listaCursos;
     public static CursoBL cursobl = CursoBL.Companion.getInstance();//singleton
+    //public static CursoBL cursob2 = new CursoBL();
 
     public listaCursoFragment() {
         // Required empty public constructor
