@@ -14,9 +14,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import Create.c_CursoFragment;
+
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, AlumnoFragment.OnFragmentInteractionListener, listaCursoFragment.OnFragmentInteractionListener,ProfesorFragment.OnFragmentInteractionListener,CarreraFragment.OnFragmentInteractionListener,CicloFragment.OnFragmentInteractionListener,CursoFragment.OnFragmentInteractionListener,UsuarioFragment.OnFragmentInteractionListener,GrupoFragment.OnFragmentInteractionListener {
+        implements NavigationView.OnNavigationItemSelectedListener, AlumnoFragment.OnFragmentInteractionListener, listaCursoFragment.OnFragmentInteractionListener,ProfesorFragment.OnFragmentInteractionListener,CarreraFragment.OnFragmentInteractionListener,CicloFragment.OnFragmentInteractionListener,CursoFragment.OnFragmentInteractionListener,UsuarioFragment.OnFragmentInteractionListener,GrupoFragment.OnFragmentInteractionListener, c_CursoFragment.OnFragmentInteractionListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -115,7 +117,7 @@ public class MainActivity extends AppCompatActivity
             fragmentSeleccionado=true;
         } else if (id == R.id.nav_Curso) {
             Toast.makeText(getApplicationContext(),"on nav_Curso",Toast.LENGTH_SHORT).show();
-            miFragment=new listaCursoFragment();
+            miFragment=new CursoFragment();
             fragmentSeleccionado=true;
         } else if (id == R.id.nav_Grupo) {
             miFragment=new GrupoFragment();
