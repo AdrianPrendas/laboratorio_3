@@ -1,13 +1,40 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
     tools:context="com.example.kevca.a03.CarreraFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:id="@+id/title_curso"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text= " "/>
+        android:layout_height="wrap_content"
+        android:fontFamily="monospace"
+        android:paddingBottom="20dp"
+        android:paddingTop="10dp"
+        android:text="Carrera"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
-</FrameLayout>
+    <Button
+        android:id="@+id/btn_c_carrera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Crear Carrera" />
+
+    <EditText
+        android:id="@+id/search_carrera"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Busqueda"
+        android:paddingBottom="10dp" />
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_carrera"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </android.support.v7.widget.RecyclerView>
+
+</LinearLayout>

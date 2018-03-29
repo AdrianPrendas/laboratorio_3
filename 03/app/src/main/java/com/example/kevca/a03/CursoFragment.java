@@ -92,7 +92,6 @@ public class CursoFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        Toast.makeText(getActivity().getApplicationContext(),"TOast entra on create",Toast.LENGTH_SHORT).show();
         final View vista= inflater.inflate(R.layout.fragment_curso, container, false);
         btnCrear= (Button)vista.findViewById(R.id.btn_c_curso);
         listaCursos=new ArrayList<>();
@@ -112,7 +111,7 @@ public class CursoFragment extends Fragment {
             public void onClick(View v) {
 
                 FragmentManager manager=getFragmentManager();
-                manager.beginTransaction().replace(R.id.content_frame,new c_CursoFragment()).commit();
+                manager.beginTransaction().replace(R.id.content_frame,c_CursoFragment.newInstance(0)).addToBackStack("back1").commit();
             }
         });
 
@@ -129,7 +128,8 @@ public class CursoFragment extends Fragment {
             @Override
             public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
                 if (direction==ItemTouchHelper.LEFT){
-                    Toast.makeText(getContext(),"IZQUIERDA",Toast.LENGTH_SHORT).show();
+                    FragmentManager manager=getFragmentManager();
+                    manager.beginTransaction().replace(R.id.content_frame,c_CursoFragment.newInstance((int) viewHolder.itemView.getTag())).addToBackStack("bcccf").commit();
 
                 }else {
                     Curso curso= cursobl.delete((int) viewHolder.itemView.getTag());
@@ -241,4 +241,5 @@ public class CursoFragment extends Fragment {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
+
 }
