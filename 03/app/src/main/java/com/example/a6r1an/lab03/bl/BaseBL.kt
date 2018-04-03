@@ -1,4 +1,4 @@
-package com.example.bl
+package com.example.a6r1an.lab03.bl
 
 /**
  * Created by Josue on 25/03/2018.

@@ -1,7 +1,6 @@
 package com.example.test
 
 import com.example.a6r1an.lab03.domain.Alumno
-import com.example.bl.AlumnoBL
 import java.util.*
 /**
  * Created by Josue on 25/03/2018.

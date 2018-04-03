@@ -36,6 +36,8 @@ import java.util.List;
 
 import static android.Manifest.permission.READ_CONTACTS;
 
+import com.example.a6r1an.lab03.bl.Test;
+
 /**
  * A login screen that offers login via email/password.
  */
@@ -67,6 +69,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        new Test();
         setContentView(R.layout.activity_login);
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);

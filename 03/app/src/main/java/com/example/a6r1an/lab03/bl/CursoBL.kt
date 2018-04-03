@@ -1,4 +1,4 @@
-package com.example.bl
+package com.example.a6r1an.lab03.bl
 
 import com.example.a6r1an.lab03.domain.Curso
 import java.sql.Date
@@ -6,7 +6,7 @@ import java.util.*
 /**
  * Created by Josue on 26/03/2018.
  */
-class CursoBL: BaseBL<Int,Curso>{
+class CursoBL private constructor(): BaseBL<Int,Curso>{
 
     override fun create(obj: Curso): Curso {
         hashTable[obj.codigo] = obj

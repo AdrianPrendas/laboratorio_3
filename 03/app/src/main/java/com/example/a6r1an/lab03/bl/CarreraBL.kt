@@ -1,4 +1,4 @@
-package com.example.bl
+package com.example.a6r1an.lab03.bl
 
 import com.example.a6r1an.lab03.domain.Carrera
 import java.util.*

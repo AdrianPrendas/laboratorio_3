@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.a6r1an.lab03.domain.Curso;
+import com.example.a6r1an.lab03.bl.CursoBL;
 
 import java.util.ArrayList;
 
