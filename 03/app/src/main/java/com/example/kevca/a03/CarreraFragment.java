@@ -21,8 +21,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.a6r1an.lab03.bl.CarreraBL;
 import com.example.a6r1an.lab03.domain.Carrera;
-import com.example.bl.CarreraBL;
 
 import java.util.ArrayList;
 

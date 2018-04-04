@@ -15,7 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.a6r1an.lab03.domain.Curso;
-import com.example.bl.CursoBL;
+import com.example.a6r1an.lab03.bl.CursoBL;
 import com.example.kevca.a03.CursoFragment;
 import com.example.kevca.a03.R;
 

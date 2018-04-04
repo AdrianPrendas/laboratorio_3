@@ -14,7 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.a6r1an.lab03.domain.Profesor;
-import com.example.bl.ProfesorBL;
+import com.example.a6r1an.lab03.bl.ProfesorBL;
 import com.example.kevca.a03.ProfesorFragment;
 import com.example.kevca.a03.R;
 

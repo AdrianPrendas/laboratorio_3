@@ -14,7 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.a6r1an.lab03.domain.Carrera;
-import com.example.bl.CarreraBL;
+import com.example.a6r1an.lab03.bl.CarreraBL;
 import com.example.kevca.a03.CarreraFragment;
 import com.example.kevca.a03.R;
 

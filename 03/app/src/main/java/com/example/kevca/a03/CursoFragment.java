@@ -23,7 +23,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.a6r1an.lab03.domain.Curso;
-import com.example.bl.CursoBL;
+import com.example.a6r1an.lab03.bl.CursoBL;
 
 import java.util.ArrayList;
 

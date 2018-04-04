@@ -12,18 +12,11 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.a6r1an.lab03.domain.Curso;
-<<<<<<< HEAD
 import com.example.a6r1an.lab03.bl.CursoBL;
-=======
-import com.example.bl.CursoBL;
->>>>>>> b58bd7178fbf8f11cb796fa84143c2533ee7faea
 
 import java.util.ArrayList;
 
 import Adaptadores.AdaptadorCurso;
-//import Entidades.Curso;
-
-
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
