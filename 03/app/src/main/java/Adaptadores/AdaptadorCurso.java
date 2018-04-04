@@ -41,6 +41,7 @@ public class AdaptadorCurso extends
         holder.tvCodigo.setText(String.valueOf(listaCursos.get(position).getCodigo()));
         holder.tvCreditos.setText(String.valueOf(listaCursos.get(position).getCreditos()));
         holder.tvHoras.setText(String.valueOf(listaCursos.get(position).getHoras()));
+        holder.itemView.setTag(listaCursos.get(position).getCodigo());
     }
 
     @Override
@@ -69,5 +70,10 @@ public class AdaptadorCurso extends
             tvCreditos= (TextView) itemView.findViewById(R.id.tvCreditos2);
             tvHoras= (TextView) itemView.findViewById(R.id.tvhoras2);
         }
+    }
+    //Cambia los cursos segun la busqueda y notifica al adaptador del cambio
+    public void filterList(ArrayList<Curso> listaCursosBusqueda){
+        listaCursos=listaCursosBusqueda;
+        notifyDataSetChanged();
     }
 }

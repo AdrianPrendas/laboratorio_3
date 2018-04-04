@@ -1,12 +1,33 @@
 package com.example.kevca.a03;
 
 import android.content.Context;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.RectF;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import com.example.a6r1an.lab03.domain.Carrera;
+import com.example.bl.CarreraBL;
+
+import java.util.ArrayList;
+
+import Adaptadores.AdaptadorCarrera;
+import Create.c_CarreraFragment;
 
 
 /**
@@ -26,6 +47,13 @@ public class CarreraFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    RecyclerView recycler_carrera;
+    ArrayList<Carrera> listaCarreras;
+    EditText search_carrera;
+    AdaptadorCarrera adapter;
+    Button btnCrear;
+    public static CarreraBL carrerabl = CarreraBL.Companion.getInstance();//singleton
 
     private OnFragmentInteractionListener mListener;
 
@@ -63,8 +91,105 @@ public class CarreraFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_carrera, container, false);
+        View vista = inflater.inflate(R.layout.fragment_carrera, container, false);
+        btnCrear= (Button)vista.findViewById(R.id.btn_c_carrera);
+        listaCarreras=new ArrayList<>();
+        recycler_carrera=(RecyclerView) vista.findViewById(R.id.recycler_carrera);
+        recycler_carrera.setLayoutManager(new LinearLayoutManager(getContext()));
+        llenarLista();
+        adapter = new AdaptadorCarrera(listaCarreras);
+        recycler_carrera.setAdapter(adapter);
+        btnCrear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                FragmentManager manager=getFragmentManager();
+                manager.beginTransaction().replace(R.id.content_frame, c_CarreraFragment.newInstance(0)).addToBackStack("back3").commit();
+            }
+        });
+        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+            @Override
+            public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
+                if (direction==ItemTouchHelper.LEFT){
+                    FragmentManager manager=getFragmentManager();
+                    manager.beginTransaction().replace(R.id.content_frame,c_CarreraFragment.newInstance((int) viewHolder.itemView.getTag())).addToBackStack("bckcarrf").commit();
+
+                }else {
+                    Carrera carrera= carrerabl.delete((int) viewHolder.itemView.getTag());
+                    llenarLista();
+                    adapter = new AdaptadorCarrera(listaCarreras);
+                    recycler_carrera.setAdapter(adapter);
+                    Toast.makeText(getContext(),"Eliminada "+carrera.getNombre(),Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onChildDraw(Canvas c, RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive) {
+                Paint color=new Paint();
+                if(actionState==ItemTouchHelper.ACTION_STATE_SWIPE){
+                    View itemView = viewHolder.itemView;
+                    if (dX>0){
+
+                        color.setColor(Color.parseColor("#df013b"));
+                        RectF fondo=new RectF((float)itemView.getLeft(),(float)itemView.getTop(),dX,(float)itemView.getBottom());
+                        c.drawRect(fondo,color);
+
+
+
+                    }else{
+                        color.setColor(Color.parseColor("#01DFA5"));
+                        RectF fondo=new RectF((float)itemView.getLeft(),(float)itemView.getTop(),itemView.getRight(),(float)itemView.getBottom());
+                        c.drawRect(fondo,color);
+                    }
+
+                }
+
+
+
+                super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
+            }
+        }).attachToRecyclerView(recycler_carrera);
+
+
+        //Busqueda
+        search_carrera=(EditText) vista.findViewById(R.id.search_carrera);
+        search_carrera.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                filter(s.toString());
+            }
+        });
+
+        return vista;
+    }
+
+    private void llenarLista() {
+        listaCarreras = new ArrayList(carrerabl.readAll());
+    }
+
+    private void filter(String text){
+        ArrayList<Carrera> listaCarrerasBusqueda=new ArrayList<>();
+        for(Carrera carrera : listaCarreras){
+            if (carrera.getNombre().toLowerCase().contains(text.toLowerCase()) || String.valueOf(carrera.getCodigo()).contains(text)){
+                listaCarrerasBusqueda.add(carrera);
+            }
+        }
+        adapter.filterList(listaCarrerasBusqueda);
     }
 
     // TODO: Rename method, update argument and hook method into UI event

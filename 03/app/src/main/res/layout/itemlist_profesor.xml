@@ -27,7 +27,7 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/tvNombre"
+                        android:id="@+id/tvNombreP"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:paddingBottom="10dp"
@@ -42,16 +42,15 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/tvcodigo"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Codigo:" />
+                            android:text="ID:" />
 
                         <TextView
-                            android:id="@+id/tvCodigo2"
+                            android:id="@+id/tvCedulaP"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="cod" />
+                            android:text="00000" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -60,16 +59,15 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/tvCreditos"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Creditos:" />
+                            android:text="Telefono:" />
 
                         <TextView
-                            android:id="@+id/tvCreditos2"
+                            android:id="@+id/tvTelefonoP"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Creditos" />
+                            android:text="Telefono" />
 
 
                     </LinearLayout>
@@ -80,16 +78,27 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/tvhoras"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Horas:" />
+                            android:text="Email:" />
 
                         <TextView
-                            android:id="@+id/tvhoras2"
+                            android:id="@+id/tvMailP"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Horas" />
+                            android:text="mail" />
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
 
                     </LinearLayout>
                 </LinearLayout>

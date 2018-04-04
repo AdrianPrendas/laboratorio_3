@@ -1,7 +1,6 @@
 package com.example.a6r1an.lab03.bl
 
 import com.example.a6r1an.lab03.domain.Curso
-import java.sql.Date
 import java.util.*
 /**
  * Created by Josue on 26/03/2018.
