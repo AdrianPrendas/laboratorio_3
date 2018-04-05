@@ -8,4 +8,5 @@ data class Profesor(
         var nombre: String,
         var telefono: Int,
         var email: String
-) : Usuario(password = "abcd")
+): Usuario(nombre.split(" ")[0].toLowerCase(),Usuario.PROFESOR)
+//el password es solo el primer nombre en minuscula

@@ -33,11 +33,11 @@ class CarreraBL private constructor(): BaseBL<Int, Carrera>{
     }
 
     init{
-        hashTable[2] = Carrera(2, "Informatica", "Bachillerato", listOf(200,203,204,208,210))
-        hashTable[4] = Carrera(4, "Filosofia", "Bachillerato", listOf(400,401,402,406,408))
-        hashTable[3] = Carrera(3, "Economia", "Licenciatura", listOf(320,321,332,338,339))
-        hashTable[1] = Carrera(1, "Biologia", "Licenciatura", listOf(101,102,109,107,108))
-        hashTable[5] = Carrera(5, "Administracion", "Bachillerato", listOf(500,502,505,506,509))
+        hashTable[0] = Carrera(0, "Informatica", "Bachillerato", listOf(200,203,204,208,210))
+        hashTable[1] = Carrera(1, "Filosofia", "Bachillerato", listOf(400,401,402,406,408))
+        hashTable[2] = Carrera(2, "Economia", "Licenciatura", listOf(320,321,332,338,339))
+        hashTable[3] = Carrera(3, "Biologia", "Licenciatura", listOf(101,102,109,107,108))
+        hashTable[4] = Carrera(4, "Administracion", "Bachillerato", listOf(500,502,505,506,509))
     }
 
     private object Holder { val INSTANCE = CarreraBL() }

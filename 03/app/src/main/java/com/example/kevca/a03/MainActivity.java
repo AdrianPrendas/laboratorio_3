@@ -39,6 +39,15 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.setItemIconTintList(null);
+
+        /*Persona user;
+        String json = (String)getIntent().getExtras().getSerializable("user");
+        if(((String)getIntent().getExtras().getSerializable("tipo")).equals("Alumno"))
+            user = new Gson().fromJson(json,Alumno.class);
+        else//si no es gallo es gallina
+            user = new Gson().fromJson(json,Profesor.class);
+
+        Toast.makeText(this,user.toString(),Toast.LENGTH_LONG).show();*/
     }
 
     @Override

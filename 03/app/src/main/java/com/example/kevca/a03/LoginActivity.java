@@ -5,6 +5,7 @@ import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -31,12 +32,16 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import static android.Manifest.permission.READ_CONTACTS;
 
+import com.example.a6r1an.lab03.bl.AlumnoBL;
 import com.example.a6r1an.lab03.bl.Test;
+import com.example.a6r1an.lab03.domain.Alumno;
 
 /**
  * A login screen that offers login via email/password.
@@ -181,17 +186,17 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             focusView = mEmailView;
             cancel = true;
         }
-
-        if (cancel) {
-            // There was an error; don't attempt login and focus the first
-            // form field with an error.
-            focusView.requestFocus();
-        } else {
-            // Show a progress spinner, and kick off a background task to
-            // perform the user login attempt.
-            showProgress(true);
-            mAuthTask = new UserLoginTask(email, password);
-            mAuthTask.execute((Void) null);
+        if (!cancel) {
+            Iterator<Alumno> it = AlumnoBL.Companion.getInstance().readAll().iterator();
+            for(Alumno a = it.next();it.hasNext();a=it.next()){
+                if(a.getEmail().equals(email)&&a.getPassword().equals(password)){
+                    showProgress(true);
+                    mAuthTask = new UserLoginTask(email, password);
+                    mAuthTask.execute((Void) null);
+                    return;
+                }
+            }
+            Toast.makeText(this,"Error Usuario y/o contraseña invalidos",Toast.LENGTH_LONG).show();
         }
     }
 
@@ -341,6 +346,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 //finish();
                 Toast.makeText(getApplicationContext(),"TOast entra on create",Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+                //Toast.makeText(getApplicationContext(),user.toString(),Toast.LENGTH_LONG).show();
+                //intent.putExtra("user",user);
                 startActivity(intent);
             } else {
                 mPasswordView.setError(getString(R.string.error_incorrect_password));
