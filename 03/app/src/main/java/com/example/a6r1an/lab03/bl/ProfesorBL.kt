@@ -41,6 +41,8 @@ class ProfesorBL private constructor():BaseBL<Int, Profesor>{
         hashTable[867263211] = Profesor(867263211, "Javier Barientos Harris", 867263211, "javier.barientos.harris@una.ac.cr")
         hashTable[386748361] = Profesor(386748361, "Adrian Belasques Natividad", 386748361, "adrian.belasques.natividad@una.ac.cr")
         hashTable[863171876] = Profesor(863171876, "Maximiliano Santos Santellan", 51007477, "maximiliano.santos.santellan@una.ac.cr")
+
+        hashTable[2] = Profesor(2, "profesor Dr responsable", 51007477, "profesor")
     }
     private object Holder { val INSTANCE = ProfesorBL() }
     companion object {

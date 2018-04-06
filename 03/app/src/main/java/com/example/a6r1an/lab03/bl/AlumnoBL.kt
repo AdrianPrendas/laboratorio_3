@@ -49,6 +49,11 @@ class AlumnoBL: BaseBL<Int,Alumno>{
         hashTable[604140420]?.tipo = Usuario.ADMIN
         hashTable[115300446]?.tipo = Usuario.ADMIN
         hashTable[304830405]?.tipo = Usuario.ADMIN
+
+        hashTable[0] = Alumno(0, "Admin Tor Root", 0,"admin", Date("04/04/2018"),0)
+        hashTable[1] = Alumno(1, "Alumno aguado montero ", 0,"alumno", Date("04/04/2018"),0)
+        hashTable[0]?.tipo = Usuario.ADMIN
+        hashTable[1]?.tipo = Usuario.STUDENT
     }
     private object Holder { val INSTANCE = AlumnoBL() }
     companion object {
