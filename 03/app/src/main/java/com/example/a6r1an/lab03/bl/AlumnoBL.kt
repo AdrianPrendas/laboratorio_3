@@ -44,7 +44,7 @@ class AlumnoBL: BaseBL<Int,Alumno>{
         hashTable[769438762] = Alumno(769438762, "Dylan Montecillo Balderas", 64475384, "dylan.montecillo.balderas@una.ac.cr", Date("04/04/2018"), 1)
         hashTable[368377663] = Alumno(368377663, "Emiliano Aguado Sifuentes", 61059469, "emiliano.aguado.sifuentes@una.ac.cr", Date("04/04/2018"), 1)
         hashTable[304830405] = Alumno(304830405, "Esteban Montero Fonseca", 85334024,"esteban.montero.fonseca@est.una.ac.cr", Date("04/04/2018"),0)
-        hashTable[115300446] = Alumno(115300446, "Kevin Azofeifa Camareno", 83118855,"kevin.azofeifa.camareno@est.una.ac.cr", Date("04/04/2018"),0)
+        hashTable[114830575] = Alumno(114830575, "Kevin Calderon Rodriguez", 83118855,"kevin.azofeifa.camareno@est.una.ac.cr", Date("04/04/2018"),0)
         hashTable[604140420] = Alumno(604140420, "Adrian prendas Araya", 83118855,"adrian.prendas.araya@est.una.ac.cr", Date("04/04/2018"),0)
         hashTable[604140420]?.tipo = Usuario.ADMIN
         hashTable[115300446]?.tipo = Usuario.ADMIN
