@@ -41,7 +41,22 @@ public class AdaptadorAlumno extends
         holder.tvTelefonoA.setText(String.valueOf(listaAlumnos.get(position).getTelefono()));
         holder.tvMailA.setText(listaAlumnos.get(position).getEmail());
         holder.tvFechaA.setText(String.format("%tY-%tm-%td", listaAlumnos.get(position).getFechaNacimiento(), listaAlumnos.get(position).getFechaNacimiento(), listaAlumnos.get(position).getFechaNacimiento()));
-        holder.tvCarreraA.setText(String.valueOf(listaAlumnos.get(position).getCarrera()));
+        String carreraString="";
+        switch (listaAlumnos.get(position).getCarrera()){
+            case 0: carreraString="Informatica";
+                break;
+            case 1: carreraString="Filosofia";
+                break;
+            case 2: carreraString="Economia";
+                break;
+            case 3: carreraString="Biologia";
+                break;
+            case 4: carreraString="Administracion";
+                break;
+            default: carreraString="Informatica";
+                break;
+        }
+        holder.tvCarreraA.setText(carreraString);
         holder.itemView.setTag(listaAlumnos.get(position).getCedula());
     }
 

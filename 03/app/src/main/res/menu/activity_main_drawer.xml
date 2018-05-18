@@ -23,15 +23,17 @@
         <item
             android:id="@+id/nav_Grupo"
             android:icon="@drawable/arrow"
-            android:title="Grupo" />
+            android:title="Grupo"
+            android:visible="false"/>
         <item
             android:id="@+id/nav_Profesor"
             android:icon="@drawable/arrow"
             android:title="Profesor" />
         <item
-        android:id="@+id/nav_Usuario"
+            android:id="@+id/nav_Usuario"
             android:icon="@drawable/arrow"
-        android:title="Usuario" />
+            android:title="Usuario"
+            android:visible="false"/>
     </group>
 
     <item

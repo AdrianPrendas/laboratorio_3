@@ -9,8 +9,10 @@ import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -45,12 +47,12 @@ public class c_AlumnoFragment extends Fragment {
     private EditText c_alumno_telefono;
     private EditText c_alumno_mail;
     private EditText c_alumno_fecha;
-    private EditText c_alumno_carrera;
     private EditText c_alumno_contrasena;
     private TextView c_alumno_titulo;
     private Button c_alumno_btnGuardar;
     private static AlumnoBL alumnobl = AlumnoBL.Companion.getInstance();
     private Alumno alumno;
+    private Spinner spinner;
 
     private OnFragmentInteractionListener mListener;
 
@@ -106,9 +108,12 @@ public class c_AlumnoFragment extends Fragment {
         c_alumno_telefono= (EditText) vista.findViewById(R.id.c_alumno_telefono);
         c_alumno_mail= (EditText) vista.findViewById(R.id.c_alumno_mail);
         c_alumno_fecha= (EditText) vista.findViewById(R.id.c_alumno_fecha);
-        c_alumno_carrera= (EditText) vista.findViewById(R.id.c_alumno_carrera);
         c_alumno_contrasena= (EditText) vista.findViewById(R.id.c_alumno_contrasena);
         c_alumno_btnGuardar = (Button) vista.findViewById(R.id.c_alumno_btnGuardar);
+        spinner = (Spinner) vista.findViewById(R.id.spinner01);
+        ArrayAdapter<CharSequence> adapterArray = ArrayAdapter.createFromResource(getContext(),R.array.carreras,android.R.layout.simple_spinner_item);
+        adapterArray.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapterArray);
         if (codigoAlumno==0){
             c_alumno_titulo.setText("Crear Nuevo Alumno");
         }else{
@@ -126,8 +131,23 @@ public class c_AlumnoFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if(camposLlenos()){
-                    Date date= GregorianCalendar.getInstance().getTime();;
-                    alumno=new Alumno(Integer.parseInt(c_alumno_cedula.getText().toString()),c_alumno_nombre.getText().toString(),Integer.parseInt(c_alumno_telefono.getText().toString()),c_alumno_mail.getText().toString(),date,Integer.parseInt(c_alumno_carrera.getText().toString()));
+                    Date date= GregorianCalendar.getInstance().getTime();
+                    int carreraNum=0;
+                    switch (spinner.getSelectedItem().toString()){
+                        case "Informatica" : carreraNum=0;
+                            break;
+                        case "Filosofia": carreraNum=1;
+                            break;
+                        case "Economia": carreraNum=2;
+                            break;
+                        case "Biologia": carreraNum=3;
+                            break;
+                        case "Administracion": carreraNum=4;
+                            break;
+                        default: carreraNum=0;
+                            break;
+                    }
+                    alumno=new Alumno(Integer.parseInt(c_alumno_cedula.getText().toString()),c_alumno_nombre.getText().toString(),Integer.parseInt(c_alumno_telefono.getText().toString()),c_alumno_mail.getText().toString(),date,carreraNum);
                     alumno.setPassword(c_alumno_contrasena.getText().toString());
                     String salidaTOAST="";
                     Alumno alumnoReturn=null;
@@ -210,15 +230,41 @@ public class c_AlumnoFragment extends Fragment {
         c_alumno_telefono.setText(String.valueOf(alumno.getTelefono()));
         c_alumno_mail.setText(String.valueOf(alumno.getEmail()));
         c_alumno_fecha.setText(String.valueOf(alumno.getFechaNacimiento()));
-        c_alumno_carrera.setText(String.valueOf(alumno.getCarrera()));
+        String carreraString="";
+        switch (alumno.getCarrera()){
+            case 0: carreraString="Informatica";
+            break;
+            case 1: carreraString="Filosofia";
+            break;
+            case 2: carreraString="Economia";
+            break;
+            case 3: carreraString="Biologia";
+            break;
+            case 4: carreraString="Administracion";
+            break;
+            default: carreraString="Informatica";
+            break;
+        }
+        spinner.setSelection(getIndex(spinner, carreraString));
         c_alumno_contrasena.setText(String.valueOf(alumno.getPassword()));
 
         c_alumno_btnGuardar.setText("Modificar");
     }
     private boolean camposLlenos(){
-        if(c_alumno_cedula.getText().toString().trim().equals("") || c_alumno_nombre.getText().toString().trim().equals("") || c_alumno_telefono.getText().toString().trim().equals("") || c_alumno_mail.getText().toString().trim().equals("") || c_alumno_fecha.getText().toString().trim().equals("")|| c_alumno_carrera.getText().toString().trim().equals("")|| c_alumno_contrasena.getText().toString().trim().equals("")){
+        if(c_alumno_cedula.getText().toString().trim().equals("") || c_alumno_nombre.getText().toString().trim().equals("") || c_alumno_telefono.getText().toString().trim().equals("") || c_alumno_mail.getText().toString().trim().equals("") || c_alumno_fecha.getText().toString().trim().equals("")||  c_alumno_contrasena.getText().toString().trim().equals("")){
             return false;
         }
         return true;
+    }
+    private int getIndex(Spinner spinner, String myString){
+
+        int index = 0;
+
+        for (int i=0;i<spinner.getCount();i++){
+            if (spinner.getItemAtPosition(i).equals(myString)){
+                index = i;
+            }
+        }
+        return index;
     }
 }

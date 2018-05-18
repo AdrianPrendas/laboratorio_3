@@ -2,6 +2,13 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/kevca/Documents/GitHub/laboratorio_3/Lab3_back_end/src/domain/Alumno.java</file>
+            <file>file:/C:/Users/kevca/Documents/GitHub/laboratorio_3/Lab3_back_end/src/domain/Curso.java</file>
+            <file>file:/C:/Users/kevca/Documents/GitHub/laboratorio_3/Lab3_back_end/src/domain/Carrera.java</file>
+            <file>file:/C:/Users/kevca/Documents/GitHub/laboratorio_3/Lab3_back_end/src/domain/Usuario.java</file>
+            <file>file:/C:/Users/kevca/Documents/GitHub/laboratorio_3/Lab3_back_end/src/bl/CarreraBL.java</file>
+            <file>file:/C:/Users/kevca/Documents/GitHub/laboratorio_3/Lab3_back_end/src/bl/AlumnoBL.java</file>
+        </group>
     </open-files>
 </project-private>
