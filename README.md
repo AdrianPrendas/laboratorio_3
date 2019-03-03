@@ -1,10 +1,10 @@
 
  ### Aplicacion Android de Sistema de matricula ###
  
- Esta aplicacion no cuenta con base de datos ni conexion a servidor, es un ejemplo de un cliente Android.<br>
- Sus datos estan hardcodeados en la logica de negocio, utilizando el patron de diseno sigleton para tener
+ Esta aplicación no cuenta con base de datos ni conexion a servidor, es un ejemplo de un cliente Android.<br>
+ Sus datos estan hardcodeados en la lógica de negocios, utilizando el patron de diseño sigleton para tener
  una unica lista en memoria por cada objeto del dominio, y de esta manera hacer CRUD con las entidades.<br>
- La aplicacion esta codificada en gran parte con Java, sin embargo, el dominio y la logica de negocios estan codificadas en Kotlin, aqui podemos aprecias como el codigo funciona en conjunto
+ La aplicación esta codificada en gran parte con Java, sin embargo, el dominio y la lógica de negocios estan codificadas en Kotlin, aqui podemos aprecias como el codigo funciona en conjunto.
  
  <a href="https://github.com/AdrianPrendas/laboratorio_3/tree/master/03/app/src/main/java/com/example/a6r1an/lab03">ver seccion de codigo en Kotlin</a>
  
